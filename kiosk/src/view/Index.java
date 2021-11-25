@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Index {
 	public static void main(String[] args) {
-//		System.out.println("밥사조 팀플 메인 창");
+//		System.out.println("밥사조 팀플 메인 창 수정 확인");
 		Scanner sc = new Scanner(System.in);
 		while(true) {
 			System.out.println("0. 나가기\n1. 회원가입\n2. 로그인\n3. 마이페이지\n4. 매장 찾기"
@@ -43,6 +43,7 @@ public class Index {
 				new PaymentView();
 			} else if(choice == 7) {
 				//주문하기
+				new OrderView();
 			} else {
 				//잘못 입력 시
 				System.out.println("잘못 입력했습니다. 처음으로 돌아갑니다.");
