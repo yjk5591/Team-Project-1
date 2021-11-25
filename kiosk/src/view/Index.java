@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Index {
 	public static void main(String[] args) {
-//		System.out.println("밥사조 팀플");
+//		System.out.println("밥사조 팀플 메인 창");
 		Scanner sc = new Scanner(System.in);
 		while(true) {
 			System.out.println("0. 나가기\n1. 회원가입\n2. 로그인\n3. 마이페이지\n4. 매장 찾기"
