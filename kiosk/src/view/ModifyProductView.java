@@ -15,8 +15,8 @@ public class ModifyProductView {
 		
 		//내가 올린 상품 목록 띄우기
 //		System.out.println(pdao.getList(loginUser.userid));
-		System.out.println("변경할 상품 번호 : ");
-		int prodnum = sc.nextInt();
+		System.out.println("변경할 상품 이름 : ");
+		String menuname = sc.next();
 		System.out.println("수량 : ");
 		int newData = sc.nextInt();
 		
