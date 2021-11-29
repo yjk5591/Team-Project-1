@@ -12,7 +12,7 @@ public class ProductDAO {
 		conn = DBConnection.getConnection();
 	}
 	
-	public boolean modifyAmount(String menuid, int col, String newData) {
+	public boolean modifyAmount(String menu_id, int col, String newData) {
 		// 1: ORDER_AMOUNT
 		String[] cols = {"","ORDER_AMOUNT"};
 		String sql = "UPDATE ORDER_DETAIL SET "
@@ -22,7 +22,7 @@ public class ProductDAO {
 		try {
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, newData);
-			ps.setString(2, menuid);
+			ps.setString(2, menu_id);
 			
 			result = ps.executeUpdate();
 		} catch (SQLException e) {
