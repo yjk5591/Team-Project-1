@@ -2,6 +2,7 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 public class ProductDAO {
 	Connection conn;
@@ -11,12 +12,21 @@ public class ProductDAO {
 		conn = DBConnection.getConnection();
 	}
 	
-	public void update(String menuid, int col, int newData) {
-		String[] cols = {""
+	public boolean modifyAmount(String menuid, int col, String newData) {
+		// 1: ORDER_AMOUNT
+		String[] cols = {"","ORDER_AMOUNT"};
+		String sql = "UPDATE ORDER_DETAIL SET "
+				+ cols[col] + " = ? WHERE MENU_ID=?";
 		
-		String sql = "UPDATE ORDER_DETAIL SET ORDER_AMOUNT=?";
-		
-		
-		ps.setString(1, newData);
+		int result = 0;
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, newData);
+			ps.setString(2, menuid);
+			
+			result = ps.executeUpdate();
+		} catch (SQLException e) {
+		}
+		return result == 1;
 	}
 }

@@ -18,8 +18,13 @@ public class ModifyProductView {
 		System.out.println("변경할 상품 이름 : ");
 		String menuname = sc.next();
 		System.out.println("수량 : ");
-		int newData = sc.nextInt();
+		String newData = sc.next();
 		
+		if(pdao.modifyAmount(menuid, col, newData)) {
+			System.out.println(menuid+"의 수량이 정상적으로 수정되었습니다.");
+		}else {
+			System.out.println("상품 수량 수정 실패 / 다음에 다시 시도해주세요.");
+		}
 			
 		}
 	}
