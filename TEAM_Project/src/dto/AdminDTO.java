@@ -22,7 +22,15 @@ public class AdminDTO {
 		this.admin_phone = admin_phone;
 		this.admin_store_id = admin_store_id;
 	}
-
+	public AdminDTO(String[] datas) {
+		this.admin_id = datas[0];
+		this.admin_pw = datas[1];
+		this.admin_name = datas[2];
+		this.admin_num = Integer.parseInt(datas[3]);
+		this.admin_phone = datas[4];
+		this.admin_store_id= datas[5];
+		
+	}
 
 
 	@Override
