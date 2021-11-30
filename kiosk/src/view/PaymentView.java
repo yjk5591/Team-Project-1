@@ -10,7 +10,7 @@ public class PaymentView {
 	public static void main(String[] args) {
 		if(Session.get("loginUser") != null) {
 			Scanner sc = new Scanner(System.in);
-//			UserDTO loginUser = (UserDTO)Session.get("loginUser");
+//			CustomerDTO loginUser = (CustomerDTO)Session.get("loginUser");
 			ProductDAO pdao = new ProductDAO();
 			
 			System.out.println("========== 장바구니 ==========");
@@ -18,7 +18,7 @@ public class PaymentView {
 				if(Session.get("loginUser") == null) {
 					break;
 				} else {
-//					loginUser = (UserDTO)Session.get("loginUser");
+//					loginUser = (CustomerDTO)Session.get("loginUser");
 				}
 				
 //				System.out.println(loginUser.username + "님(" + loginUser.userid + ") 장바구니");
@@ -36,12 +36,14 @@ public class PaymentView {
 					break;
 				case 2:
 					//메뉴 삭제
+					new DeleteProductView();
 					break;
 				case 3:
 					//쿠폰 사용
 					break;
 				case 4:
 					//포인트 사용
+					new UsePointView();
 					break;
 				case 5:
 					//매장 선택

@@ -36,6 +36,6 @@ public class ProductDTO {
 	public String toString() {
 		return menu_num+"\t"+menu_id+"\t" + menu_name
 				+"\t"+menu_category+"\t"+menu_price
-				+"\t"+menu_avg_rating+"\t"+menu_review + menu_new;
+				+"\t"+menu_avg_rating+"\t"+menu_review+"\t"+menu_new;
 	}
 }

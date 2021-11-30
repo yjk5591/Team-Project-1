@@ -12,17 +12,31 @@ public class ProductDAO {
 		conn = DBConnection.getConnection();
 	}
 	
-	public boolean modifyAmount(String menu_id, int col, String newData) {
+	public boolean modifyAmount(String menu_name, int col, String newData) {
 		// 1: ORDER_AMOUNT
 		String[] cols = {"","ORDER_AMOUNT"};
 		String sql = "UPDATE ORDER_DETAIL SET "
-				+ cols[col] + " = ? WHERE MENU_ID=?";
+				+ cols[col] + " = ? WHERE MENU_NAME=?";
 		
 		int result = 0;
 		try {
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, newData);
-			ps.setString(2, menu_id);
+			ps.setString(2, menu_name);
+			
+			result = ps.executeUpdate();
+		} catch (SQLException e) {
+		}
+		return result == 1;
+	}
+
+	public boolean deleteProduct(String menu_name) {
+		String sql = "DELETE FROM ORDER_DETAIL WHERE MENU_NAME=?";
+		int result = 0;
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, menu_name);
 			
 			result = ps.executeUpdate();
 		} catch (SQLException e) {

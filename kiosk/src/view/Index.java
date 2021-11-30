@@ -43,7 +43,6 @@ public class Index {
 				new PaymentView();
 			} else if(choice == 7) {
 				//주문하기
-				new OrderView();
 			} else {
 				//잘못 입력 시
 				System.out.println("잘못 입력했습니다. 처음으로 돌아갑니다.");
