@@ -36,7 +36,7 @@ public class AdminJoinView {
 			System.out.println("이름 : ");
 			String admin_name = sc.next();
 			System.out.println("관리자 번호 : ");
-			int admin_num = sc.nextInt();
+			String admin_num = sc.next();
 			System.out.println("핸드폰 번호 : ");
 			String admin_phone = sc.next();
 			System.out.println("매장 ID : ");

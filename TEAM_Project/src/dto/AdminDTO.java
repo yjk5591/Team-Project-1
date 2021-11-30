@@ -4,7 +4,7 @@ public class AdminDTO {
 	public String admin_id;
 	public String admin_pw;
 	public String admin_name;
-	public int admin_num;
+	public String admin_num;
 	public String admin_phone;
 	public String admin_store_id;
 	
@@ -12,7 +12,7 @@ public class AdminDTO {
 
 	
 	
-	public AdminDTO(String admin_id, String admin_pw, String admin_name, int admin_num, String admin_phone,
+	public AdminDTO(String admin_id, String admin_pw, String admin_name, String admin_num, String admin_phone,
 			String admin_store_id) {
 	
 		this.admin_id = admin_id;
@@ -26,7 +26,7 @@ public class AdminDTO {
 		this.admin_id = datas[0];
 		this.admin_pw = datas[1];
 		this.admin_name = datas[2];
-		this.admin_num = Integer.parseInt(datas[3]);
+		this.admin_num = datas[3];
 		this.admin_phone = datas[4];
 		this.admin_store_id= datas[5];
 		

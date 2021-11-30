@@ -40,7 +40,7 @@ public class AdminDAO {
 		String sql = "INSERT INTO ADMIN_DB VALUES(?,?,?,?,?,?)";
 		try {
 			ps = conn.prepareStatement(sql);
-			ps.setInt(1, newAdmin.admin_num);
+			ps.setString(1, newAdmin.admin_num);
 			ps.setString(2, newAdmin.admin_id);
 			ps.setString(3, newAdmin.admin_pw);
 			ps.setString(4, newAdmin.admin_name);
@@ -111,7 +111,7 @@ public class AdminDAO {
 				AdminDTO loginAdmin = new AdminDTO(rs.getString("ADM_ID"),
 						decrypt(rs.getString("ADM_PW")),
 						rs.getString("ADM_NAME"),
-						rs.getInt("ADM_NUM"),
+						rs.getString("ADM_NUM"),
 						rs.getString("ADM_PHONENUM"),
 						rs.getString("STR_ID")
 						);
