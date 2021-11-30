@@ -41,10 +41,13 @@ public class AdminJoinView {
 			String admin_phone = sc.next();
 			System.out.println("매장 ID : ");
 			String admin_store_id = sc.next();
-			if(adao.checkStore(admin_store_id)) {
-				System.out.println("매장 ID가 정상적으로 등록되었습니다.");
-			}else {
-				System.out.println("중복된 매장ID가 있습니다.");
+			while(true) {							
+				if(adao.checkStore(admin_store_id)) {
+					break;
+				
+				}else {
+					System.out.println("중복된 매장ID가 있습니다.");
+				}
 			}
 			//DB에 저장될 관리자의 정보를 입력받았다.
 			//AdminDTO 객체를 생성하여 한 번에 넘겨주어 DB로 이동시킨다.

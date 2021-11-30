@@ -80,4 +80,29 @@ public class AdminDAO {
 		}
 		return result;
 	}
+
+
+	public boolean login(String admin_id, String admin_pw) {
+		String sql = "SELECT * FROM ADMIN_DB WHERE ADM_ID = ? AND ADM_PW = ?";
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, admin_id);
+			ps.setString(2, encrypt(admin_pw));
+			rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				AdminDTO loginAdmin = new AdminDTO(rs.getString("ADM_ID"),
+						decrypt(rs.getString("ADM_PW")),
+						rs.getString("ADM_NAME"),
+						rs.getInt("ADM_NUM"),
+						rs.getString("ADM_PHONENUM"),
+						rs.getString("STR_ID")
+						);
+				Session.put("loginAdmin",loginAdmin);
+				return true;
+			}
+		} catch (SQLException e) {					
+		}
+		return false;
+	}
 }
