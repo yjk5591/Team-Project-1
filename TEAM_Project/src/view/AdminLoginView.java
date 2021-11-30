@@ -19,5 +19,17 @@ public class AdminLoginView {
 		}else {
 			System.out.println("로그인 실패");
 		}
+		while(true) {
+			System.out.println("1. 마이페이지\n2. 메뉴수정\n3. 나가기");
+			int choice = sc.nextInt();
+			if(choice == 1) {
+				new MyPage();
+			} else if(choice == 2) {
+				new Menu_Modify();
+			} else if(choice == 3) {
+				System.out.println("이용해주셔서 감사합니다^^");
+				break;
+			}
+		}
 	}	
 }

@@ -16,6 +16,23 @@ public class AdminDAO {
 		conn = DBConnection.getConnection();
 	}
 	
+	public String myStore(String admin_store_id) {
+		String sql = "SELECT STR_NAME FROM STORE_DB WHERE STR_ID = ?";
+		String result = "";
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, admin_store_id);
+			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				result = rs.getString("STR_NAME");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
 
 	public boolean join(AdminDTO newAdmin) {
 		newAdmin.admin_pw = encrypt(newAdmin.admin_pw);
@@ -42,7 +59,7 @@ public class AdminDAO {
 		boolean result = false;
 		try {
 			ps = conn.prepareStatement(sql);
-			ps.setString(2, admin_id);
+			ps.setString(1, admin_id);
 			rs = ps.executeQuery();
 			
 			result = !rs.next();
@@ -52,11 +69,11 @@ public class AdminDAO {
 		return result;
 	}
 	public boolean checkStore(String admin_store_id) {
-		String sql= "SELECT * FROM ADMIN_DB WHERE STORE_ID = ?";
+		String sql= "SELECT * FROM ADMIN_DB WHERE STR_ID = ?";
 		boolean result = false;
 		try {
 			ps = conn.prepareStatement(sql);
-			ps.setString(6, admin_store_id);
+			ps.setString(1, admin_store_id);
 			rs = ps.executeQuery();
 			
 			result = !rs.next();
