@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+
 import dto.AdminDTO;
 
 public class AdminDAO {
@@ -134,6 +135,41 @@ public class AdminDAO {
 			
 			
 		} catch (SQLException e) {			
+			e.printStackTrace();
+		}
+		return result == 1;
+	}
+
+	public boolean check_pw(String admin_pw) {
+		
+		
+		String sql = "SELECT ADMIN_PW FROM ADMIN_DB WHERE ADM_PW = ?";	
+		boolean result = false;
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, encrypt(admin_pw));
+			rs = ps.executeQuery();
+			rs.getString("ADM_PW");
+			
+			if(encrypt(admin_pw).equals(rs.getString("ADM_PW"))) {
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;				
+	}
+
+	public boolean change_pw(String new_pw, String old_pw) {
+		String sql = "UPDATE ADMIN_DB SET ADM_PW = ? WHERE ADM_PW = ?";
+		int result = 0;
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, encrypt(new_pw));
+			ps.setString(2, encrypt(old_pw));
+			
+			result = ps.executeUpdate();
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return result == 1;

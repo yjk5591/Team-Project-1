@@ -22,6 +22,19 @@ public class Admin_Info {
 					System.out.println("매장 변경에 실패하였습니다. 다시 시도해주세요.");
 				}
 			}else if(choice == 2) {
+				System.out.println("비밀번호 변경을 위해 기존 비밀번호를 입력해  주세요 : ");
+				String old_pw = sc.next();
+				if(adao.check_pw(old_pw)) {
+					System.out.println("비밀번호가 확인되었습니다.\n 새로운 비밀번호를 입력해 주세요 : ");
+					String new_pw = sc.next();
+					if(adao.change_pw(new_pw, old_pw)) {
+						System.out.println("비밀번호 변경 성공!!");
+					}else {
+						System.out.println("비밀번호 변경 실패..\n 다시 시도해주세요.");
+					}
+				}else {
+					System.out.println("비밀번호가 틀렸습니다. 다시 시도해주세요");
+				}
 				
 			}else if(choice == 3) {
 				
