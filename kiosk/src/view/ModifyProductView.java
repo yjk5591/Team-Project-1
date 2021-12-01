@@ -9,7 +9,7 @@ public class ModifyProductView {
 	public ModifyProductView() {
 		Scanner sc = new Scanner(System.in);
 		ProductDAO pdao = new ProductDAO();
-//		UserDTO loginUser = (UserDTO)Session.get("loginUser");
+//		CustomerDTO loginUser = (CustomerDTO)Session.get("loginUser");
 		
 		System.out.println("------ 수량 변경 ------");
 		
