@@ -14,14 +14,12 @@ public class ProductDAO {
 	
 	public boolean modifyAmount(String menu_name, int col, String newData) {
 		// 1: ORDER_AMOUNT
-		String[] cols = {"","ORDER_AMOUNT"};
-		String sql = "UPDATE ORDER_DETAIL SET "
-				+ cols[col] + " = ? WHERE MENU_NAME=?";
+		String sql = "UPDATE ORDER_DETAIL SET ORDER_AMOUNT=? WHERE MENU_NAME=?";
 		
 		int result = 0;
 		try {
 			ps = conn.prepareStatement(sql);
-			ps.setString(1, newData);
+			ps.setLong(1, Integer.parseInt(newData));
 			ps.setString(2, menu_name);
 			
 			result = ps.executeUpdate();
