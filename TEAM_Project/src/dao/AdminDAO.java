@@ -122,4 +122,20 @@ public class AdminDAO {
 		}
 		return false;
 	}
+
+	public boolean change_Store(String admin_store_id, String admin_id) {
+		String sql = "UPDATE ADMIN_DB SET STR_ID = ? WHERE ADM_ID = ?";
+		int result = 0;
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, admin_store_id);
+			ps.setString(2, admin_id);
+			result = ps.executeUpdate();
+			
+			
+		} catch (SQLException e) {			
+			e.printStackTrace();
+		}
+		return result == 1;
+	}
 }
