@@ -40,10 +40,10 @@ public class PaymentView {
 					break;
 				case 3:
 					//쿠폰 사용
+					new UsingCouponView();
 					break;
 				case 4:
 					//포인트 사용
-					new UsePointView();
 					break;
 				case 5:
 					//매장 선택
