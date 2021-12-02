@@ -157,7 +157,7 @@ public class AdminDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return false;				
+		return result;				
 	}
 
 	public boolean change_pw(String new_pw, String old_pw) {
