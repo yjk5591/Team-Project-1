@@ -13,7 +13,6 @@ public class UsingCouponView {
 //		CustomerDTO loginUser = (CustomerDTO)Session.get("loginUser");
 		
 		System.out.println("------ 쿠폰 사용 ------");
-		
 
 		//내가 올린 상품 목록 띄우기
 //		System.out.println(pdao.getList(loginUser.userid));
