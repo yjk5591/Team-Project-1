@@ -15,7 +15,7 @@ public class MenuDAO {
 	public MenuDAO() {
 		conn = DBConnection.getConnection();
 	}
-	
+	//메뉴 넘버 중복인지를 체크하는 메소드
 	public boolean check_menu_num(int menu_num) {
 		String sql = "SELECT * FROM MENU_DB WHERE MENU_NUM = ?";
 		boolean result = false;
@@ -30,7 +30,7 @@ public class MenuDAO {
 		}
 		return result;
 	}
-	
+	//메뉴 DB에 추가하는 메소드
 	public boolean add(MenuDTO newMenu) {
 		int result = 0;
 		String sql = "INSERT INTO MENU_DB (MENU_NAME, MENU_PRICE, MENU_NUM, MENU_CATEGORY, MENU_ID, MENU_NEW)"

@@ -9,7 +9,7 @@ public class MenuDTO {
 	public int menu_new;
 	
 	public MenuDTO() {}
-
+	//현재 윤철, 준구, 세민 팀에서는 메뉴의 리뷰, 평점 평균을 다루지 않으므로 나머지 컬럼들만 추가하였음.
 	public MenuDTO(String menu_name, int menu_price, int menu_num, String menu_category, String menu_id,
 			int menu_new) {
 		
