@@ -5,8 +5,8 @@ import java.util.Scanner;
 import dao.CustomerDAO;
 import dao.ProductDAO;
 
-public class UsePointView {
-	public UsePointView() {
+public class UsingPointView {
+	public UsingPointView() {
 		Scanner sc = new Scanner(System.in);
 		ProductDAO pdao = new ProductDAO();
 		CustomerDAO udao = new CustomerDAO();

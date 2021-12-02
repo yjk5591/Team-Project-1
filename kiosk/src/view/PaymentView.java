@@ -44,9 +44,11 @@ public class PaymentView {
 					break;
 				case 4:
 					//포인트 사용
+					new UsingPointView();
 					break;
 				case 5:
 					//매장 선택
+					new SelectStoreView();
 					break;
 				case 6:
 					//배송지 선택
