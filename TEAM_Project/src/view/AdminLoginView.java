@@ -25,7 +25,7 @@ public class AdminLoginView {
 			if(choice == 1) {
 				new MyPage();
 			} else if(choice == 2) {
-				new Menu_Modify();
+				new AdminMenuView();
 			} else if(choice == 3) {
 				System.out.println("이용해주셔서 감사합니다^^");
 				break;

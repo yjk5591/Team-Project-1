@@ -174,4 +174,20 @@ public class AdminDAO {
 		}
 		return result == 1;
 	}
+
+	public boolean change_phone(String new_phone, String admin_pw) {
+		String sql = "UPDATE ADMIN_DB SET ADM_PHONENUM = ? WHERE ADM_PW = ?";
+		int result = 0;
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, new_phone);
+			ps.setString(2, encrypt(admin_pw));
+			
+			result = ps.executeUpdate();
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		return result == 1;
+	}
 }
