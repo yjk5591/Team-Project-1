@@ -21,7 +21,7 @@ public class UsePointView {
 		int usepoint = sc.nextInt();
 		
 		
-		if(udao.usePoint(cus_id, usepoint)) {
+		if(udao.updatePoint(cus_id, usepoint)) {
 			System.out.println(usepoint+" 포인트가 사용되었습니다.");
 		}else {
 			System.out.println("포인트 사용 실패 / 다음에 다시 시도해주세요.");

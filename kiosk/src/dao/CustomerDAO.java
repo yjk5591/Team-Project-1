@@ -69,5 +69,11 @@ public class CustomerDAO {
 		}
 	}
 
+	//사용하고 남은 포인트를 업데이틑 하는 메서드
+	public boolean updatePoint(String cus_id, int usepoint) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 	
 }
