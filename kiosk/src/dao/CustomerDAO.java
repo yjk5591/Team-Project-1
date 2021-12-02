@@ -13,22 +13,32 @@ public class CustomerDAO {
 		conn = DBConnection.getConnection();
 	}
 	
+	//고객의 쿠폰 개수를 불러오는 메서드 --> updateCoupons에 사용됨
 	public int getCoupons(String cus_id) {
+		//고객의 쿠폰 개수를 불러오는 sql문
 		String sql = "SELECT CUS_COUPONS FROM CUS_DB WHERE CUS_ID=?";
 		
+		//쿠폰 개수를 couponamount라는 이름으로 설정
 		ResultSet couponamount = null;
 		try {
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, cus_id);
 			
+			//쿠폰 개수를 불러와서 저장함
 			couponamount = ps.executeQuery();
+			//couponamount의 첫 번째 인덱스 값을 불러옴
+			//--> 인덱스가 하나라 바로 쿠폰 개수를 불러오게 된다
 			return couponamount.getInt(1);
 		} catch (SQLException e) {
 		}
+		
+		//?? 리턴 0을 하는게 맞는건가?
 		return 0;
 	}
 
+	//쿠폰의 개수를 CUS_DB에 업데이트 하는 메서드
 	public boolean updateCoupons(String cus_id, int usecoupons) {
+		//getCoupons 메서드를 사용해서 고객의 쿠폰 개수를 coupons 변수에 저장
 		int coupons = getCoupons(cus_id);
 		
 		//쿠폰의 개수가 0보다 작으면 사용할 쿠폰의 개수가 없으므로
@@ -54,6 +64,7 @@ public class CustomerDAO {
 				result = ps.executeUpdate();
 			} catch (SQLException e) {
 			}
+			//업데이트 성공했다면 true
 			return result == 1;
 		}
 	}
