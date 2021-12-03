@@ -51,4 +51,20 @@ public class MenuDAO {
 		}
 		return result == 1;
 	}
+	public boolean menu_delete(String menu_name) {
+		String sql = "DELETE FROM MENU_DB WHERE MENU_NAME = ?";
+		int result = 0;
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, menu_name);
+			
+			result = ps.executeUpdate();
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result == 1;
+		
+	}
 }
