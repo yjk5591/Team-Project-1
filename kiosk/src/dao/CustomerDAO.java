@@ -131,4 +131,40 @@ public class CustomerDAO {
 			}
 		}
 	}
+
+	public boolean selectLocation(String cus_id, int choice) {
+		String location;
+		
+		if(choice == 1) {
+			String sql = "SELECT CUS_ADDR FROM CUS_DB WHERE CUD_ID=?";
+			
+			try {
+				ps = conn.prepareStatement(sql);
+				ps.setString(1, cus_id);
+				
+				rs = ps.executeQuery();
+				
+				location = rs.getString("CUS_ADDR");
+				
+				return true;
+			} catch (SQLException e) {
+			}
+		}else if(choice ==2) {
+			String sql = "SELECT CUS_ADDR2 FROM CUS_DB WHERE CUD_ID=?";
+			
+			String result;
+			try {
+				ps = conn.prepareStatement(sql);
+				ps.setString(1, cus_id);
+				
+				rs = ps.executeQuery();
+				
+				location = rs.getString("CUS_ADDR2");
+				
+				return true;
+			} catch (SQLException e) {
+			}
+		}
+		return false;
+	}
 }

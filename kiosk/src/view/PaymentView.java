@@ -29,6 +29,7 @@ public class PaymentView {
 				switch(choice) {
 				case 0:
 					//처음으로 돌아가기
+					new Index();
 					break;
 				case 1:
 					//수량 변경
@@ -52,9 +53,11 @@ public class PaymentView {
 					break;
 				case 6:
 					//배송지 선택
+					new SelectLocationView();
 					break;
 				case 7:
 					//결제하기
+					new PayView();
 					break;
 				default:
 					System.out.println("잘못 입력했습니다. 다시 입력해주세요.");
