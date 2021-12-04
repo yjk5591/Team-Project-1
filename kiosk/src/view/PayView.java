@@ -5,7 +5,7 @@ import java.util.Scanner;
 import dao.CustomerDAO;
 
 public class PayView {
-	public PayView() {
+	public PayView(String cus_id) {
 		Scanner sc = new Scanner(System.in);
 		CustomerDAO cdao = new CustomerDAO();
 		
@@ -17,11 +17,15 @@ public class PayView {
 		int choice = sc.nextInt();
 		
 		if(choice == 1) {
-			System.out.println("현금으로 결제합니다.");
-			
+			int total = cdao.getTotal(cus_id);
+			System.out.println("총액 : "+total+"원");
+			System.out.println("현금으로 결제되었습니다.");
+			cdao.updateTotal(cus_id, 0);
 		}else if(choice == 2) {
-			System.out.println("카드로 결제합니다.");
-			
+			int total = cdao.getTotal(cus_id);
+			System.out.println("총액 : "+total+"원");
+			System.out.println("카드로 결제되었습니다.");
+			cdao.updateTotal(cus_id, 0);
 		}else {
 			System.out.println("결제 실패 / 다음에 다시 시도해주세요.");
 		}

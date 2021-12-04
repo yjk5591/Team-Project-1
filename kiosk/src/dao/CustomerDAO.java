@@ -65,6 +65,11 @@ public class CustomerDAO {
 					
 					//업데이트 성공하면 1 증가
 					result = ps.executeUpdate();
+					
+					//쿠폰 사용 한 값을 뺀 나머지 총액 업데이트
+					int total_price = getTotal(cus_id);
+					total_price = total_price - (usecoupons * 1000);
+					updateTotal(cus_id, total_price);
 				} catch (SQLException e) {
 				}
 				//업데이트 성공했다면 true
@@ -124,6 +129,11 @@ public class CustomerDAO {
 					
 					//업데이트 성공하면 1 증가
 					result = ps.executeUpdate();
+					
+					//포인트 사용 한 값을 뺀 나머지 총액 업데이트
+					int total_price = getTotal(cus_id);
+					total_price = total_price - usepoint;
+					updateTotal(cus_id, total_price);
 				} catch (SQLException e) {
 				}
 				//업데이트 성공했다면 true
@@ -132,7 +142,7 @@ public class CustomerDAO {
 		}
 	}
 
-	public boolean selectLocation(String cus_id, int choice) {
+	public String selectLocation(String cus_id, int choice) {
 		String location;
 		
 		if(choice == 1) {
@@ -145,26 +155,65 @@ public class CustomerDAO {
 				rs = ps.executeQuery();
 				
 				location = rs.getString("CUS_ADDR");
-				
-				return true;
-			} catch (SQLException e) {
-			}
-		}else if(choice ==2) {
-			String sql = "SELECT CUS_ADDR2 FROM CUS_DB WHERE CUD_ID=?";
-			
-			String result;
-			try {
-				ps = conn.prepareStatement(sql);
-				ps.setString(1, cus_id);
-				
-				rs = ps.executeQuery();
-				
-				location = rs.getString("CUS_ADDR2");
-				
-				return true;
+
+				return location;
 			} catch (SQLException e) {
 			}
 		}
-		return false;
+		return "배송지 선택 실패 / 다음에 다시 시도해주세요.";
 	}
+	
+	public String selectNewLocation(String cus_id, int choice, String newlocation) {
+		if(choice == 2) {
+			String sql = "UPDATE CUS_DB SET CUD_ADDR2=? WHERE CUS_ID=?";
+			int result = 0;
+			
+			try {
+				ps = conn.prepareStatement(sql);
+				ps.setString(1, newlocation);
+				ps.setString(2, cus_id);
+				
+				result = ps.executeUpdate();
+				
+				return newlocation;
+			} catch (SQLException e) {
+			}
+		}
+		return "배송지 선택 실패 / 다음에 다시 시도해주세요.";
+	}
+	
+	public int getTotal(String cus_id) {
+		String sql = "SELECT ORDER_PRICE FROM ORDER_VIEW WHERE CUS_ID=?";
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, cus_id);
+			
+			rs = ps.executeQuery();
+			
+			 int total = rs.getInt("ORDER_PRICE");
+			 
+			 return total;
+		} catch (SQLException e) {
+		}
+		return (Integer) null;
+	}
+
+	public int updateTotal(String cus_id, int total) {
+		String sql = "UPDATE ORDER_VIEW SET ORDER_PRICE=? WHERE CUS_ID=?";
+		
+		int result = 0;
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, total);
+			ps.setString(2, cus_id);
+			
+			result = ps.executeUpdate();
+			
+			return total;
+		} catch (SQLException e) {
+		}
+		return (Integer) null;
+	}
+
 }

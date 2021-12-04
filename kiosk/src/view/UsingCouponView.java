@@ -4,20 +4,19 @@ import java.util.Scanner;
 
 import dao.CustomerDAO;
 import dao.ProductDAO;
+import dao.Session;
+import dto.CustomerDTO;
 
 public class UsingCouponView {
-	public UsingCouponView() {
+	public UsingCouponView(String cus_id) {
 		Scanner sc = new Scanner(System.in);
 		ProductDAO pdao = new ProductDAO();
 		CustomerDAO cdao = new CustomerDAO();
-//		CustomerDTO loginUser = (CustomerDTO)Session.get("loginUser");
 		
 		System.out.println("------ 쿠폰 사용 ------");
 
 		//내가 올린 상품 목록 띄우기
 //		System.out.println(pdao.getList(loginUser.userid));
-		System.out.println("아이디를 입력해주세요 : ");
-		String cus_id = sc.next();
 		System.out.println("사용할 쿠폰의 개수를 입력해주세요 : ");
 		int usecoupons = sc.nextInt();
 		
