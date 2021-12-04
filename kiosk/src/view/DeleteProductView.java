@@ -12,8 +12,8 @@ public class DeleteProductView {
 		ProductDAO pdao = new ProductDAO();
 		
 		while(true) {
-			System.out.println("------ 메뉴 변경 ------");
-			System.out.println("[1] 메뉴 변경");
+			System.out.println("------ 메뉴 삭제 ------");
+			System.out.println("[1] 메뉴 삭제하기");
 			System.out.println("[2] 장바구니로 다시 돌아가기");
 			int number = sc.nextInt();
 			

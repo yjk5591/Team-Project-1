@@ -142,6 +142,16 @@ public class CustomerDAO {
 		}
 	}
 
+	//포인트 적립
+	public void establishPoint(String cus_id) {
+		int recent_point = getPoint(cus_id);
+		int total = getTotal(cus_id);
+		
+		recent_point = (int) (recent_point + (total * 0.05));
+	
+		updatePoint(cus_id, recent_point);
+	}
+
 	public String selectLocation(String cus_id, int choice) {
 		String location;
 		
@@ -215,5 +225,4 @@ public class CustomerDAO {
 		}
 		return (Integer) null;
 	}
-
 }
