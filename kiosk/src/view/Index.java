@@ -8,7 +8,7 @@ public class Index {
 		Scanner sc = new Scanner(System.in);
 		while(true) {
 			System.out.println("0. 나가기\n1. 회원가입\n2. 로그인\n3. 마이페이지\n4. 매장 찾기"
-					+ "\n5. 메뉴\n6. 장바구니\n7. 주문하기");
+					+ "\n5. 메뉴\n6. 장바구니");
 			int choice = sc.nextInt();
 			
 			if(choice == 0) {
@@ -41,8 +41,6 @@ public class Index {
 			} else if(choice == 6) {
 				//장바구니
 				new PaymentView();
-			} else if(choice == 7) {
-				//주문하기
 			} else {
 				//잘못 입력 시
 				System.out.println("잘못 입력했습니다. 처음으로 돌아갑니다.");
