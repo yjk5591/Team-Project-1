@@ -201,9 +201,9 @@ public class CustomerDAO {
 			
 			rs = ps.executeQuery();
 			
-			 int total = rs.getInt("ORDER_PRICE");
+			int total = rs.getInt("ORDER_PRICE");
 			 
-			 return total;
+			return total;
 		} catch (SQLException e) {
 		}
 		return (Integer) null;

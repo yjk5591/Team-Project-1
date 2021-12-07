@@ -20,8 +20,7 @@ public class UsingCouponView {
 			int number = sc.nextInt();
 			
 			if(number == 1) {
-				//내가 올린 상품 목록 띄우기
-//				System.out.println(pdao.getList(cus_id));
+				System.out.println("보유하고 있는 쿠폰의 개수 : "+cdao.getCoupons(cus_id));
 				System.out.println("사용할 쿠폰의 개수를 입력해주세요 : ");
 				int usecoupons = sc.nextInt();
 				

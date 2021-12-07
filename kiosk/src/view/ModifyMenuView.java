@@ -19,7 +19,7 @@ public class ModifyMenuView {
 			
 			if(number == 1) {
 				//내가 올린 상품 목록 띄우기
-//				System.out.println(pdao.getList(cus_id));
+				System.out.println(mdao.getList(cus_id));
 				System.out.println("변경할 상품 이름 : ");
 				String menu_name = sc.next();
 				System.out.println("수량 : ");

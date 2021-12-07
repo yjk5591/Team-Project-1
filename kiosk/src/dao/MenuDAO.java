@@ -2,11 +2,15 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashSet;
 
 public class MenuDAO {
 	Connection conn;
 	PreparedStatement ps;
+	ResultSet rs;
 	
 	public MenuDAO() {
 		conn = DBConnection.getConnection();
@@ -55,5 +59,26 @@ public class MenuDAO {
 		}
 		//1이면 true / 0 그대로면 false
 		return result == 1;
+	}
+
+	public String[] getList(String cus_id) {
+		String sql = "SELECT ORDER_NUMBER,MENU_NAME,ORDER_AMOUNT,MENU_PRICE FROM ORDER_DETAIL WHERE CUS_ID=?";
+		String[] menulist = new String[4];
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, cus_id);
+			
+			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				menulist[0] = rs.getString("ORDER_NUMBER");
+				menulist[1] = rs.getString("MENU_NAME");
+				menulist[2] = rs.getString("ORDER_AMOUNT");
+				menulist[3] = rs.getString("MENU_PRICE");
+			}
+		} catch (SQLException e) {
+		}
+		return menulist;
 	}
 }
