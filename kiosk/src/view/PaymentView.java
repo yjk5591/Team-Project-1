@@ -34,11 +34,11 @@ public class PaymentView {
 					break;
 				case 1:
 					//수량 변경
-					new ModifyProductView(loginUser.cus_id);
+					new ModifyMenuView(loginUser.cus_id);
 					break;
 				case 2:
 					//메뉴 삭제
-					new DeleteProductView(loginUser.cus_id);
+					new DeleteMenuView(loginUser.cus_id);
 					break;
 				case 3:
 					//쿠폰 사용

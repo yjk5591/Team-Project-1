@@ -6,8 +6,8 @@ import dao.MenuDAO;
 import dao.Session;
 import dto.CustomerDTO;
 
-public class ModifyProductView {
-	public ModifyProductView(String cus_id) {
+public class ModifyMenuView {
+	public ModifyMenuView(String cus_id) {
 		Scanner sc = new Scanner(System.in);
 		MenuDAO mdao = new MenuDAO();
 		

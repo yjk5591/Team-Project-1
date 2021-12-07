@@ -6,8 +6,8 @@ import dao.MenuDAO;
 import dao.Session;
 import dto.CustomerDTO;
 
-public class DeleteProductView {
-	public DeleteProductView(String cus_id) {
+public class DeleteMenuView {
+	public DeleteMenuView(String cus_id) {
 		Scanner sc = new Scanner(System.in);
 		MenuDAO mdao = new MenuDAO();
 		
