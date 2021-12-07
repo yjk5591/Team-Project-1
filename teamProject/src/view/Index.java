@@ -2,6 +2,8 @@ package view;
 
 import java.util.Scanner;
 
+import view.AdminJoinView;
+
 public class Index {
 	public static void main(String[] args) {
 		System.out.println("★★★★밥사조 키오스크 메인 화면★★★★");
@@ -24,6 +26,7 @@ public class Index {
 					int ch = sc.nextInt();
 					if(ch == 1) {
 						System.out.println("관리자 회원가입");
+						new AdminJoinView();
 					} else if(ch == 2) {
 						System.out.println("고객 회원가입");
 					} else {
