@@ -4,11 +4,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class ProductDAO {
+public class MenuDAO {
 	Connection conn;
 	PreparedStatement ps;
 	
-	public ProductDAO() {
+	public MenuDAO() {
 		conn = DBConnection.getConnection();
 	}
 	

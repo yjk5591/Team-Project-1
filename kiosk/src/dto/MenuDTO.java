@@ -1,6 +1,6 @@
 package dto;
 
-public class ProductDTO {
+public class MenuDTO {
 	public String menu_name;
 	public int menu_price;
 	public int menu_num;
@@ -10,7 +10,7 @@ public class ProductDTO {
 	public int menu_avg_rating;
 	public boolean menu_new;
 	
-	public ProductDTO(String menu_name, int menu_price, int menu_num, String menu_category, String menu_id,
+	public MenuDTO(String menu_name, int menu_price, int menu_num, String menu_category, String menu_id,
 			String menu_review, int menu_avg_rating, boolean menu_new) {
 		this.menu_name = menu_name;
 		this.menu_price = menu_price;
@@ -22,7 +22,7 @@ public class ProductDTO {
 		this.menu_new = menu_new;
 	}
 	
-	public ProductDTO(String[] datas) {
+	public MenuDTO(String[] datas) {
 		this.menu_num = Integer.parseInt(datas[0]);
 		this.menu_id = datas[1];
 		this.menu_name = datas[2];

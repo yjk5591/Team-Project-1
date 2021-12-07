@@ -3,14 +3,14 @@ package view;
 import java.util.Scanner;
 
 import dao.CustomerDAO;
-import dao.ProductDAO;
+import dao.MenuDAO;
 import dao.Session;
 import dto.CustomerDTO;
 
 public class UsingPointView {
 	public UsingPointView(String cus_id) {
 		Scanner sc = new Scanner(System.in);
-		ProductDAO pdao = new ProductDAO();
+		MenuDAO mdao = new MenuDAO();
 		CustomerDAO cdao = new CustomerDAO();
 
 		while(true) {

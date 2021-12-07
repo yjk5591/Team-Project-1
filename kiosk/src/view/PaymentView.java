@@ -2,7 +2,7 @@ package view;
 
 import java.util.Scanner;
 
-import dao.ProductDAO;
+import dao.MenuDAO;
 import dao.Session;
 import dto.CustomerDTO;
 
@@ -12,7 +12,7 @@ public class PaymentView {
 		if(Session.get("loginUser") != null) {
 			Scanner sc = new Scanner(System.in);
 			CustomerDTO loginUser = (CustomerDTO)Session.get("loginUser");
-			ProductDAO pdao = new ProductDAO();
+			MenuDAO mdao = new MenuDAO();
 			
 			System.out.println("========== 장바구니 ==========");
 			while(true) {

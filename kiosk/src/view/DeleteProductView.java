@@ -2,14 +2,14 @@ package view;
 
 import java.util.Scanner;
 
-import dao.ProductDAO;
+import dao.MenuDAO;
 import dao.Session;
 import dto.CustomerDTO;
 
 public class DeleteProductView {
 	public DeleteProductView(String cus_id) {
 		Scanner sc = new Scanner(System.in);
-		ProductDAO pdao = new ProductDAO();
+		MenuDAO mdao = new MenuDAO();
 		
 		while(true) {
 			System.out.println("------ 메뉴 삭제 ------");
@@ -23,7 +23,7 @@ public class DeleteProductView {
 				System.out.println("삭제할 메뉴 이름 : ");
 				String menu_name = sc.next();
 				
-				if(pdao.deleteProduct(cus_id, menu_name)) {
+				if(mdao.deleteProduct(cus_id, menu_name)) {
 					System.out.println(menu_name+"이 정상적으로 삭제되었습니다.");
 				}else {
 					System.out.println("메뉴 삭제 실패 / 다음에 다시 입력해주세요.");
